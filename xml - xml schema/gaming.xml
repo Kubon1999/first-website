@@ -1,0 +1,176 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="schema.xsd"
+lang="pl">
+	<game>
+		<title>World of Tanks</title>
+		<section>
+			<header>
+				Informacje podstawowe
+			</header>
+			<content>
+				Klan:
+				<shortcut>
+					<short>PGP</short>
+					<full>
+					Polska Grupa Pancerniaków
+					</full>
+				</shortcut>
+				Skupiony na pojazdach z krajów:
+				<list>Ameryka, Brytania</list>
+				Skupiony na pojazdach typu:
+				<list>Średni, Niszczyciel, Działo samobieżne</list>
+			</content>
+		</section>
+		<section>
+			<header>
+				Ulubione czołgi
+			</header>
+			<content>
+				<cabinet>
+					<element>
+						<name>M4 sherman</name>
+						<tankData>
+							<type>Czołg średni</type>
+							<tier>V</tier>
+							<country>USA</country>
+						</tankData>
+					</element>
+					<element>
+						<name>M26 Pershing</name>
+						<tankData>
+							<type>Czołg średni</type>
+							<tier>VIII</tier>
+							<country>USA</country>
+						</tankData>
+					</element>
+					<element>
+						<name>M36 Jackson</name>
+						<tankData>
+							<type>Niszczyciel czołgów</type>
+							<tier>VI</tier>
+							<country>USA</country>
+						</tankData>
+					</element>
+					<element>
+						<name>Alecto</name>
+						<tankData>
+							<type>Niszczyciel czołgów</type>
+							<tier>IV</tier>
+							<country>USA</country>
+						</tankData>
+					</element>
+					<element>
+						<name>M4A3E2 Sherman Jumbo</name>
+						<tankData>
+							<type>Czołg średni</type>
+							<tier>VI</tier>
+							<country>USA</country>
+						</tankData>
+					</element>
+				</cabinet>
+			</content>
+		</section>
+		<section category="gallery">
+			<header>
+				Galeria
+			</header>
+			<content>
+				<gallery>
+					<name>Święta 2017 - Pershing w garażu</name>
+					<img src="galleries/gaming/world_of_tanks/World Of Tanks-01-15-2017 18-02-44-949.jpg">Czołg</img>
+					<name>Odwiedziny po miesiącach - M46 Patton w garażu</name>
+					<img src="galleries/gaming/world_of_tanks/shot_005.jpg">Czołg</img>
+				</gallery>
+			</content>
+		</section>
+		<section>
+			<header>
+				Inne
+			</header>
+			<content>
+				Link do strony gry:
+				<link src="https://worldoftanks.eu/pl/">World of Tanks</link>
+			</content>
+		</section>
+	</game>
+	<game>
+		<title>Medieval Engineers</title>
+		<section>
+			<header>
+				Widok mojej osady ze szczytu góry
+			</header>
+			<content>
+				Chciałem przedstawić jako kolejną z wielu gier w jakie gram, grę która ma cechę wspólną z większością moich gier, a zarazem najbardziej mi bliską, otóż chodzi o <span bold="true">konstruowanie</span>.
+				Na poniższym zrzucie ekranowym widać moje kilkadziesiąt godzin przetwarzania zasobów, robienia badań i budowania domów oraz maszyn ułatwiających dalszy rozwój.
+				<gallery>
+					<name>Wioska ze szczytu</name>
+					<img src="galleries/gaming/medieval_engineers/peak.jpg">Szczyt</img>
+				</gallery>
+				Budynki zbudowane na tym swiecie:
+				<villageData>
+					<name></name>
+					<founder>ja</founder>
+					<district>
+						<name></name>
+						<buildings>
+							<building>
+								<name>Mój dom</name>
+							</building>
+							<building type="productional">
+								<name>Tartak</name>
+							</building>
+							<building type="productional">
+								<name>Kuźnia</name>
+							</building>
+							<building type="productional">
+								<name>Garncarnia</name>
+							</building>
+							<building type="productional">
+								<name>Szwalnia</name>
+							</building>
+							<building type="productional">
+								<name>Młyn</name>
+							</building>
+						</buildings>
+					</district>
+					<district>
+						<name></name>
+						<buildings>
+							<building type="productional">
+								<name>Piekarnia</name>
+							</building>
+							<building type="recreational">
+								<name>Gospoda</name>
+							</building>
+							<building type="productional">
+								<name>Garbarnia</name>
+							</building>
+							<building type="productional">
+								<name>Farma</name>
+							</building>
+						</buildings>
+					</district>
+					<district>
+						<name></name>
+						<buildings>
+							<building type="defensive">
+								<name>Wieża obserwacyjna</name>
+							</building>
+							<building type="productional">
+								<name>Kopalnia</name>
+							</building>
+						</buildings>
+					</district>
+					<unsorted>
+						<buildings>
+							<building type="defensive" underconstruction="true">
+								<name>Wieża obronna</name>
+							</building>
+						</buildings>
+					</unsorted>
+				</villageData>
+			</content>
+		</section>
+	</game>
+</document>

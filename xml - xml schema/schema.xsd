@@ -1,0 +1,220 @@
+<?xml versdion="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+attributeFormDefault="unqualified"
+elementFormDefault="qualified">
+
+<xs:element name="document">
+	<xs:complexType>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="game">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="1" />
+						<xs:element name="section" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="header" type="xs:string" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="content">
+										<xs:complexType mixed="true">
+											<xs:group ref="internal" minOccurs="0" maxOccurs="unbounded" />
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							<xs:attribute name="category" type="xs:string" />
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="lang" type="xs:string" default="en"/>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="shortcut" type="shortcutType" />
+
+<xs:complexType name="shortcutType">
+	<xs:all>
+		<xs:element name="short" type="shortType" />
+		<xs:element name="full" type="xs:string" />
+	</xs:all>
+</xs:complexType>
+
+<xs:simpleType name="shortType">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="10" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:element name="list">
+	<xs:simpleType>
+		<xs:list itemType="xs:string" />
+	</xs:simpleType>
+</xs:element>
+
+<xs:element name="cabinet">
+	<xs:complexType>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="element">
+				<xs:complexType mixed="true">
+					<xs:sequence>
+						<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						<xs:group ref="internal" minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="gallery">
+	<xs:complexType>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="name" type="xs:string" />
+			<xs:element ref="img" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="link" type="linkType" />
+
+<xs:complexType name="linkType">
+	<xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute name="src" type="xs:string" />
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+
+<xs:element name="img" type="linkType" />
+
+<xs:simpleType name="roman">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="([IVXLCDM])*" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tier">
+	<xs:restriction base="roman">
+		<xs:enumeration value="I" />
+		<xs:enumeration value="II" />
+		<xs:enumeration value="III" />
+		<xs:enumeration value="IV" />
+		<xs:enumeration value="V" />
+		<xs:enumeration value="VI" />
+		<xs:enumeration value="VII" />
+		<xs:enumeration value="VIII" />
+		<xs:enumeration value="IX" />
+		<xs:enumeration value="X" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="score">
+	<xs:restriction base="xs:integer">
+		<xs:minInclusive value="1" />
+		<xs:maxInclusive value="10" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="num_tier">
+	<xs:union memberTypes="tier score" />
+</xs:simpleType>
+
+<xs:element name="tankData">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="type" type="xs:string" />
+			<xs:element name="tier" type="num_tier" />
+			<xs:element name="country" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="span">
+	<xs:complexType>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="bold" type="xs:boolean" />
+				<xs:attribute name="italic" type="xs:boolean" />
+				<xs:attribute name="del" type="xs:boolean" />
+				<xs:attribute name="mark" type="xs:boolean" />
+				<xs:attribute name="ins" type="xs:boolean" />
+				<xs:attribute name="suporsub" type="suporsubType" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:element>
+
+<xs:simpleType name="suporsubType">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="sup|sub" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:element name="villageData">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="founder" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="district" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+						<xs:element ref="buildings" minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="unsorted" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="buildings" minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="buildings">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="building" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="building">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="type" type="buildingType" default="mixed" />
+		<xs:attribute name="underconstruction" type="xs:boolean" />
+	</xs:complexType>
+</xs:element>
+
+<xs:simpleType name="buildingType">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="mixed" />
+		<xs:enumeration value="productional" />
+		<xs:enumeration value="recreational" />
+		<xs:enumeration value="defensive" />
+		<xs:enumeration value="residential" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:group name="internal">
+	<xs:choice>
+		<xs:element ref="shortcut" />
+		<xs:element ref="list" />
+		<xs:element ref="gallery" />
+		<xs:element ref="cabinet" />
+		<xs:element ref="link" />
+		<xs:element ref="span" />
+
+		<xs:element ref="tankData" />
+		<xs:element ref="villageData" />
+	</xs:choice>
+</xs:group>
+
+</xs:schema>

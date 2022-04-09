@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<title>Puggies Mobi</title>
+		<link rel="stylesheet" type="text/css" href="./css/index-styl.css">
+		<link rel="stylesheet" type="text/css" href="./css/questionnaire.css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	</head>
+	
+	<body>
+		<header>
+					<ul id="container-nav">
+					  	<li class="item-logo"><img src="img/logo.png" alt="Puggies Mobi"></li>
+						<li class="item-title"><h1>MY HOBBY</h1></li>
+						<li class="item-nav"><a href="index.html">HOME</a></li>
+						<li class="item-nav"><a href="about_me.html">ABOUT ME</a></li>
+					    <li class="item-nav dropdown">
+							<a href="projects.html">PROJECTS</a>
+							<div class="dropdown-content">
+								<a href="projects.html#title-apps">MOBILE</a>
+								<a href="projects.html#title-pc">PC</a>
+							</div>
+						</li>
+					    <li class="item-nav"><a href="gallery.html">GALLERY</a></li>
+					    <li class="item-nav active"><a href="questionnaire.html">QUESTIONNAIRE</a></li>								
+					    <li class="item-nav"><a href="contact.html">CONTACT</a></li>						
+					</ul>
+		</header>
+		<form>
+		<div class="container-showcase">
+			<div>
+				<table>
+					<tr>
+						<th colspan="2"><p>Gender</p> </th>
+					</tr>
+					<tr>
+						<th><input type="radio" name="gender"><p>Male</p></th>
+						<th><input type="radio" name="gender"><p>Female</p></th>
+					</tr>
+				</table>
+			</div>
+			
+			<div>
+				<p>Name: </p>
+				<input type="text" placeholder="Name..." />
+				<p>Lastname: </p>
+				<input type="text" placeholder="Lastname..." />
+			</div>
+
+			<div>
+				<p>Rate(1-5): </p>
+				<input type="number" name="quantity" min="1" max="5">
+			</div>
+			
+			<div>
+				<p>Date: </p>
+				<input type="date" name="bday">
+			</div>
+			
+			<div>
+				<input type="reset" value="Reset">
+				<input type="button" value="Save">
+			</div>
+			
+			<div>
+				<a href="mailto:kuba.wolodzko@gmail.com">Send e-mail!</a>
+			</div>
+		</div>
+		</form>
+		<footer>
+			<p>© 2018 Jakub Wolodzko. All rights reserved.</p>
+		</footer>
+		
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<title>Puggies Mobi</title>
+		<link rel="stylesheet" type="text/css" href="./css/index-styl.css">
+		<link rel="stylesheet" type="text/css" href="./css/gallery-styl.css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	</head>
+	
+	<body>
+		<header>
+					<ul id="container-nav">
+					  	<li class="item-logo"><img src="img/logo.png" alt="Puggies Mobi"></li>
+						<li class="item-title"><h1>MY HOBBY</h1></li>
+						<li class="item-nav"><a href="index.html">HOME</a></li>
+						<li class="item-nav"><a href="about_me.html">ABOUT ME</a></li>
+					    <li class="item-nav dropdown">
+							<a href="projects.html">PROJECTS</a>
+							<div class="dropdown-content">
+								<a href="projects.html#title-apps">MOBILE</a>
+								<a href="projects.html#title-pc">PC</a>
+							</div>
+						</li>
+					    <li class="item-nav active"><a href="gallery.html">GALLERY</a></li>
+					    <li class="item-nav"><a href="questionnaire.html">QUESTIONNAIRE</a></li>								
+					    <li class="item-nav"><a href="contact.html">CONTACT</a></li>						
+					</ul>
+		</header>
+		
+		<div class="title-h1">
+			<h2>Apps that inspire me: </h2>
+		</div>	
+		
+		<div class="container-gallery">
+			<div class="gallery-side">
+				<a href="#i1" onclick="show(img1)"> <img id="img1" src="./img/gallery/one.jpg" alt="Puggies Mobi"/> </a>
+				<a href="#i2" onclick="show(img2)"> <img id="img2" src="./img/gallery/two.jpg" alt="Puggies Mobi"/> </a>
+				<a href="#i3" onclick="show(img3)"> <img id="img3" src="./img/gallery/three.jpg" alt="Puggies Mobi"/> </a>
+				<a href="#i4" onclick="show(img4)"> <img id="img4" src="./img/gallery/four.jpg" alt="Puggies Mobi"/> </a>
+				<a href="#i5" onclick="show(img5)"> <img id="img5" src="./img/gallery/five.jpg" alt="Puggies Mobi"/> </a>			
+			</div>
+			
+			<div class="gallery-preview">
+				<img id="galleryPreviewImg" src="./img/gallery/one.jpg" alt="Puggies Mobi"/>			
+			</div>
+		</div>
+		
+		<footer>
+			<p>© 2018 Jakub Wolodzko. All rights reserved.</p>
+		</footer>
+		
+		<script>
+			function show(id){
+				var el = id.getAttribute("src");
+				let bigScreen = document.getElementById("galleryPreviewImg");
+				bigScreen.src = el;
+			}
+		</script>
+	</body>
+</html>

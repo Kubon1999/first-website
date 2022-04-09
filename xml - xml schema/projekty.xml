@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projekty-schema.xsd">
+  <film top="true" wysokobudzetowy="true">
+
+    <tytul polski="true">Lot nad kukulczym gniazdem</tytul>
+    <link src="https://www.filmweb.pl/Lot.Nad.Kukulczym.Gniazdem"/>
+    <status>po premierze</status>
+
+    <opis>
+      Historia złodzieja, szulera i chuligana, który, by uniknąć więzienia, udaje niepoczytalność.
+      Trafia do szpitala dla umysłowo chorych, gdzie twardą ręką rządzi siostra Ratched.
+    </opis>
+
+    <ocena>10</ocena>
+
+    <nagrody iloscNagrod="2">
+      <nagroda>
+        <typ>oscar</typ>
+        <opis>Najlepszy film 1975.</opis>
+      </nagroda>
+      <nagroda>
+        <typ>zloty glob</typ>
+        <opis>Najlepszy dramat w roku 1975.</opis>
+      </nagroda>
+    </nagrody>
+
+    <premiera>1995</premiera>
+
+    <gatunki>
+      <gatunek>Dramat</gatunek>
+      <gatunek>Psychologiczny</gatunek>
+    </gatunki>
+
+    <obsada>
+      <obsada-aktorska>
+        <aktor plec="M">
+          <imie>Jack</imie>
+          <nazwisko>Nicholson</nazwisko>
+          <jako>Randle Patrick McMurphy</jako>
+          <ocena>10</ocena>
+          <img src="./img/jack_nicholson.jpg"/>
+          <link src="https://www.filmweb.pl/person/Jack.Nicholson"/>
+        </aktor>
+        <aktor plec="M">
+          <imie>Louiser</imie>
+          <nazwisko>Fletcher</nazwisko>
+          <jako>Siostra Mildred Ratched</jako>
+          <ocena>9</ocena>
+          <img src="./img/Louiser.jpg"/>
+        </aktor>
+      </obsada-aktorska>
+
+      <tworcy>
+        <tworca plec="M">
+          <imie>Milos</imie>
+          <nazwisko>Forman</nazwisko>
+          <jako>rezyser</jako>
+          <ocena>7</ocena>
+          <img src="./img/milos.jpg"/>
+        </tworca>
+        <tworca >
+          <imie>Bo</imie>
+          <nazwisko>Goldman</nazwisko>
+          <jako>scenariusz</jako>
+          <ocena>8</ocena>
+        </tworca>
+      </tworcy>
+    </obsada>
+
+  </film>
+
+  <film top="false">
+
+    <tytul>Skazani na Shawshank</tytul>
+    <link src="https://www.filmweb.pl/Skazani.Na.Shawshank"/>
+    <status>po premierze</status>
+
+    <opis>
+      Adaptacja opowiadania Stephena Kinga.
+      Niesłusznie skazany na dożywocie bankier,
+      stara się przetrwać w brutalnym, więziennym świecie.
+    </opis>
+
+    <ocena>9</ocena>
+
+    <premiera>1994</premiera>
+
+    <gatunki>
+      <gatunek>Dramat</gatunek>
+    </gatunki>
+
+    <obsada>
+      <obsada-aktorska>
+        <aktor plec="Mezczyzna">
+          <imie>Tim</imie>
+          <nazwisko>Robbins</nazwisko>
+          <jako>Andy Dufresne</jako>
+          <ocena>7</ocena>
+          <img src="./img/tim.jpg"/>
+          <link src="https://www.filmweb.pl/person/Tim.Robbins"/>
+        </aktor>
+        <aktor plec="Mezczyzna" top="true">
+          <imie>Morgan</imie>
+          <nazwisko>Freeman</nazwisko>
+          <jako>Ellis Boyd "Red" Redding</jako>
+          <ocena>10</ocena>
+        </aktor>
+      </obsada-aktorska>
+
+      <tworcy>
+        <tworca plec="M">
+          <imie>Frank</imie>
+          <nazwisko>Darabont</nazwisko>
+          <jako>scenariusz i rezyseria</jako>
+          <ocena>7</ocena>
+        </tworca>
+      </tworcy>
+    </obsada>
+
+    <ostatnie-5-ocen>6 10 5 3 9</ostatnie-5-ocen>
+
+    <produkcja>
+      <kraj>USA</kraj>
+      <kraj>Francja</kraj>
+    </produkcja>
+
+    <ciekawostki>
+      <ciekawostka>
+        Michelle Pfeiffer, Nicole Kidman, Melanie Griffith,
+        Rene Russo, Cameron Diaz, Uma Thurman, Traci Lords
+        i Madonna były brane pod uwagę jako odtwórczynie
+        roli Ginger.
+      </ciekawostka>
+      <ciekawostka>
+        Bob Newhart był brany pod uwagę do zagrania roli Andy'ego Stone'a.
+      </ciekawostka>
+    </ciekawostki>
+
+    <inne-tytuly>
+      <tytul>
+        <kraj>USA</kraj>
+        <tresc>Casino</tresc>
+      </tytul>
+      <tytul>
+        <kraj>Finlandia (fiński) (tytuł telewizyjny) / Chorwacja</kraj>
+        <tresc>Casino</tresc>
+      </tytul>
+      <tytul>
+        <kraj>Brazylia</kraj>
+        <tresc>Cassino</tresc>
+      </tytul>
+  </inne-tytuly>
+
+  </film>
+</document>

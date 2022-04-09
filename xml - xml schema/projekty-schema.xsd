@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+attributeFormDefault="unqualified"
+elementFormDefault="qualified">
+
+  <xs:element name="document">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="film">
+          <xs:complexType>
+
+              <xs:element name="tytul" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:attribute name="polski" type="xs:boolean"/>
+              </xs:element>
+
+              <xs:element ref="link" minOccurs="1" maxOccurs="1"/>
+
+            <xs:element name="status" minOccurs="1" maxOccurs="1">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="po premierze"/>
+                  <xs:enumeration value="premiera"/>
+                  <xs:enumeration value="oczekiwane"/>
+                </xs:restriction>
+              </xs:simpleType>
+              <xs:attribute name="w-kinach" type="xs:boolean"/>
+            </xs:element>
+
+            <xs:element name="opis" maxOccurs="1">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="30"/>
+                <xs:maxLength value="300"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+
+            <xs:element ref="ocena" minOccurs="1" maxOccurs="1"/>
+
+            <xs:element name="nagrody" type="nagrodyTyp" maxOccurs="1">
+              <xs:attribute name="iloscNagrod" type="xs:nonNegativeInteger"/>
+            </xs:element>
+
+            <xs:element name="premiera" type="myDateType" minOccurs="1" maxOccurs="1"/>
+
+            <xs:element name="gatunki" type="gatunkiType" minOccurs="1" maxOccurs="1"/>
+
+            <xs:element name="obsada" type="obsadaType" minOccurs="1" maxOccurs="1"/>
+
+            <xs:element name="ostatnie-5-ocen" maxOccurs="1">
+              <xs:simpleType>
+                <xs:list itemType="ocenaTyp" maxLength="5"/>
+              </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="produkcja" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="kraj" type="shrString"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+
+            <xs:element name="ciekawostki" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ciekawostka" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+
+            <xs:element name="inne-tytuly" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="tytul" maxOccurs="unbounded">
+                    <xs:simpleType>
+                      <xs:element name="kraj" type="shrString"/>
+                      <xs:element name="tresc" type="xs:string"/>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute ref="top"/>
+      <xs:attribute name="wysokobudzetowy" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="nagrodyTyp">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="nagroda" type="nagrodaTyp"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="nagrodaTyp">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="oscar"/>
+      <xs:enumeration value="zloty glob"/>
+      <xs:enumeration value="krysztalowa statuetka"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ocenaTyp">
+    <xs:restriction base="xs:nonNegativeInteger">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="myDateType">
+    <xs:sequence>
+      <xs:element name="year">
+        <xs:simpleType>
+        <xs:restriction base="xs:nonNegativeInteger">
+          <xs:pattern value="[0-9][0-9][0-9][0-9]"/>
+        </xs:restriction>
+      </xs:simpleType>
+      </xs:element>
+
+              <xs:element name="month">
+                <xs:simpleType>
+                  <xs:restriction base="xs:nonNegativeInteger">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="12"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="extendedDateType">
+    <xs:complexContent>
+      <xs:extension base="myDateType">
+        <xs:sequence>
+
+          <xs:element name="day">
+            <xs:simpleType>
+              <xs:restriction base="xs:nonNegativeInteger">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="31"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="ocena" type="ocenaTyp"/>
+  <xs:element name="img" type="linkType" />
+  <xs:element name="link" type="linkType" />
+
+  <xs:complexType name="linkType">
+  	<xs:simpleContent>
+  		<xs:extension base="xs:anyURI">
+  			<xs:attribute name="src" type="xs:anyURI" />
+  		</xs:extension>
+  	</xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="gatunkiType">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="gatunek" type="gatunekType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="gatunekType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Dramat"/>
+      <xs:enumeration value="Psychologiczny"/>
+      <xs:enumeration value="Akcja"/>
+      <xs:enumeration value="Horror"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="obsadaType">
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="obsada-aktorska" type="tworcyType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="tworcy" type="tworcyType" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tworcyType">
+      <xs:group ref="tworcaGroup"/>
+      <xs:attribute ref="plec"/>
+      <xs:attribute ref="top"/>
+  </xs:complexType>
+
+  <xs:group name="tworcaGroup">
+    <xs:sequence>
+      <xs:element name="imie" type="shrString" minOccurs="1" maxOccurs="3"/>
+      <xs:element name="nazwisko" type="shrString" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="jako" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element ref="ocena" minOccurs="1" maxOccurs="1"/>
+      <xs:element ref="img"/>
+      <xs:element ref="link" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+
+  <xs:simpleType name="shrString">
+    <xs:restriction base="xs:string">
+      <xs:length value="13"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="top" type="xs:boolean"/>
+  <xs:attribute name="plec">
+    <xs:simpleType>
+      <xs:union memberTypes="plecbyToken plecbyString" />
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:simpleType name="plecbyToken">
+    <xs:restriction base="xs:token">
+		    <xs:pattern value="M|K"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="plecbyString">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Kobieta"/>
+      <xs:enumeration value="Mezczyzna"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

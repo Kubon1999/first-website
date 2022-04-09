@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<title>Puggies Mobi</title>
+		<link rel="stylesheet" type="text/css" href="./css/index-styl.css">
+		<link rel="stylesheet" type="text/css" href="./css/jquery-ui.css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>
+	</head>
+	
+	<body>
+		<header>
+					<ul id="container-nav">
+					  	<li class="item-logo"><img src="img/logo.png" alt="Puggies Mobi"></li>
+						<li class="item-title"><h1>MY HOBBY</h1></li>
+						<li class="item-nav"><a href="index.html">HOME</a></li>
+						<li class="item-nav"><a href="about_me.html">ABOUT ME</a></li>
+					    <li class="item-nav dropdown">
+							<a href="projects.html">PROJECTS</a>
+							<div class="dropdown-content">
+								<a href="projects.html#title-apps">MOBILE</a>
+								<a href="projects.html#title-pc">PC</a>
+							</div>
+						</li>
+						<li class="item-nav"><a href="gallery.html">GALLERY</a></li>
+					    <li class="item-nav"><a href="questionnaire.html">QUESTIONNAIRE</a></li>		
+					    <li class="item-nav active"><a href="contact.html">CONTACT</a></li>						
+					</ul>
+		</header>
+		
+		<div class="container-showcase">
+			<div>
+				<h2>Contact with me!</h2>
+				<input type="text" id="name" placeholder="Name..."/> 
+				<input type="text" id="lastname" placeholder="Lastname..."/> <br />
+				<input type="text" id="email" placeholder="Email..."/> <br />
+				<textarea id="text" cols="40" rows="5" placeholder="Text..."></textarea>  <br />
+				<input type="button" value="save" onclick="save()"/>
+				<input type="button" value="autofill" onclick="autofill()"/>
+				<input type="button" value="add me to visitors!" onclick="addList()"/>
+			</div>
+			
+			<div id="imgHere">
+				<h2>Nice to meet you </h2><h2 id="nameSession">[your name here]</h2>
+			</div>
+			
+			<div>
+				<div class="title-h1">
+					<h2>also were here:</h2>
+				</div>				
+				<div id="accordion">
+				</div>		
+			</div>
+		</div>
+		
+		<footer>
+		<p>© 2018 Jakub Wolodzko. All rights reserved.</p>
+		</footer>
+		
+		<script>
+			let nameSession2 = sessionStorage.getItem("nameSession");
+			document.getElementById("nameSession").innerHTML = nameSession2;
+			if(sessionStorage.imageCreated){
+				let img = document.createElement("img");
+				img.src = "img/gj.png";
+				document.getElementById("imgHere").appendChild(img);			
+			}else{
+				sessionStorage.imageCreated = 0;
+			}
+			
+			function save(){
+				let nameValue = document.getElementById('name').value;
+				let lastnameValue = document.getElementById('lastname').value;
+				let emailValue = document.getElementById('email').value;
+				let textValue = document.getElementById('text').value;
+				localStorage.setItem('name', nameValue);
+				localStorage.setItem('lastname', lastnameValue);
+				localStorage.setItem('email', emailValue);
+				localStorage.setItem('text', textValue);
+				sessionStorage.setItem('nameSession', nameValue);
+				
+				let nameSession2 = sessionStorage.getItem("nameSession");
+				document.getElementById("nameSession").innerHTML = nameSession2;
+
+				if(sessionStorage.imageCreated == 0){
+				let img = document.createElement("img");
+				img.src = "img/gj.png";
+				document.getElementById("imgHere").appendChild(img);
+				sessionStorage.imageCreated = 1;
+				}
+				
+					$('<div></div>').dialog({
+						title: "Sucess!",
+					open: function () {
+						var markup = 'Thank you for your feedback ' + document.getElementById("name").value;
+						$(this).html(markup);
+					}
+					})
+			}
+			
+			function autofill(){
+				let nameValue = localStorage.getItem("name");
+				document.getElementById("name").value = nameValue;
+
+				let lastnameValue = localStorage.getItem("lastname");
+				document.getElementById("lastname").value = lastnameValue;
+				
+				let emailValue = localStorage.getItem("email");
+				document.getElementById("email").value = emailValue;
+
+				let textValue = localStorage.getItem("text");
+				document.getElementById("text").value = textValue;					
+			}
+			function addList(){
+				let nameh2 = document.createElement("h2");
+				nameh2.innerHTML = document.getElementById("name").value
+				document.getElementById("accordion").appendChild(nameh2);
+				let namep = document.createElement("p");
+				namep.innerHTML = "Lastname: " + document.getElementById("lastname").value + "<br />" 
+				+ "Email: " + document.getElementById("email").value + "<br />" 
+				+ "Text: " + document.getElementById("text").value + "<br />" 
+				document.getElementById("accordion").appendChild(namep);
+				$( "#accordion" ).accordion( "refresh" );
+			}
+			
+				$('#nameSession').mouseover(
+					function(){
+					$(this).text(localStorage.getItem("lastname"));
+				})
+				$('#nameSession').mouseout(
+					function(){
+					$(this).text(localStorage.getItem("name"));
+				})
+		</script>
+	</body>
+</html>
